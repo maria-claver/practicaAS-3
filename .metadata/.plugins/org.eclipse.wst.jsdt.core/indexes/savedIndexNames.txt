@@ -1,3 +1,0 @@
-INDEX VERSION 1.122+C:\Users\maria\UPC\AS\WS\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1863837231.index
-532899780.index
