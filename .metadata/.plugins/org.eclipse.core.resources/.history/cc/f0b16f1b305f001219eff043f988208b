@@ -1,0 +1,75 @@
+package com.practica.as.Adpters;
+
+import java.util.Date;
+
+import src.PagamentStub;
+import src.PagamentStub.Pagar;
+import src.PagamentStub.PagarResponse;
+import Excepcions.ServeiNoDisponible;
+
+import com.practica.as.ServiceLocator.ServiceLocator;
+
+public class AdaptadorAutoritza implements IAdaptadorAutoritza {
+
+	public boolean pagament(String dni, String numT, float importTotal, Date dC, Date dAvui) throws ServeiNoDisponible {
+		try {
+			PagamentStub stub = (PagamentStub) ServiceLocator.INSTANCE.find("Pagament");
+			Pagar pagament = new Pagar();
+			pagament.setDataAvui(dAvui);
+			pagament.setDataCad(dC);
+			pagament.setDni(dni);
+			pagament.setImportTotal(importTotal);
+			pagament.setNumT(numT);
+			boolean b = validarDni(dni);
+			b = b && validarImport(importTotal);
+			b = b && validarData(dC, dAvui);
+			b = b && validarNumT(numT);
+			System.out.println(b);
+			PagarResponse response = stub.pagar(pagament);
+			return response.get_return();
+		} catch (Exception e) {
+			throw new ServeiNoDisponible();
+		}
+	}
+	
+	private boolean validarDni(String dni) {
+		dni = dni.toUpperCase();
+		if (dni.length() == 9) {
+			char letra = dni.charAt(dni.length()-1);
+			if (letra >= 'A' && letra <= 'Z') {
+				dni = dni.substring(0, dni.length()-1);
+				try {
+					Integer dniNumber = Integer.parseInt(dni);
+					String letras = "TRWAGMYFPDXBNJZSQVHLCKET";
+					boolean res = letra == letras.charAt(dniNumber%23);
+					return res;
+				} catch (Exception e) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private boolean validarNumT(String numT) {
+		try {
+			Long.parseLong(numT);
+			boolean res = numT.length() == 16; 
+			return res;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	private boolean validarImport(float importTotal) {
+		boolean res = importTotal > 0; 
+		return res;
+	}
+	
+	private boolean validarData(Date dataCad, Date dataAvui) {
+		boolean res = dataCad.after(dataAvui);
+		return res;
+	}
+
+	
+}

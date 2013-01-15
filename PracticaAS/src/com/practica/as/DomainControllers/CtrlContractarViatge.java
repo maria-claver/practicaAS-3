@@ -66,6 +66,7 @@ public class CtrlContractarViatge {
 	
 	public boolean pagament(String numTarg, Date dC) throws ServeiNoDisponible {
 		Date dAvui = new Date();
+		boolean after = dC.after(dAvui);
 		float importTotal = this.preuVol + this.preuH;
 		AdaptadorAutoritza aa = Factoria.INSTANCE.getAdaptadorAutoritza();
 		boolean b = aa.pagament(dni, numTarg, importTotal, dC, dAvui);
@@ -75,5 +76,20 @@ public class CtrlContractarViatge {
 	public float getPreuVol() {
 		return preuVol;
 	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public void setPreuVol(float preuVol) {
+		this.preuVol = preuVol;
+	}
+
+	public void setPreuH(float preuH) {
+		this.preuH = preuH;
+	}
+	
+	
+	
 	
 }

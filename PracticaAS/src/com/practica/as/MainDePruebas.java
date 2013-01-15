@@ -1,89 +1,88 @@
 package com.practica.as;
 
 import java.util.Date;
-import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.classic.Session;
-
-import Excepcions.JaTeViatge;
-import Excepcions.NoHiHaCiutats;
-
-import com.practica.as.DataInterface.CtrlDataFactoria;
-import com.practica.as.DataLayer.CtrlClient;
-import com.practica.as.DataLayer.PersistanceConfig;
 import com.practica.as.DomainControllers.CtrlContractarViatge;
-import com.practica.as.DomainModel.Ciutat;
-import com.practica.as.DomainModel.Client;
-import com.practica.as.DomainModel.Viatge;
 
 public class MainDePruebas {
 
 	public static void main(String[] args) {
-		
-//		Session session = PersistanceConfig.INSTANCE.getSession();
-		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
-		Session session = factory.getCurrentSession();
-		session.beginTransaction();
 
-		Ciutat venecia= new Ciutat ();
-		venecia.setNom("Venecia");
-		venecia.setDescripcio("Canales");
-		venecia.setPreuVol(5);
-		
-		Ciutat Paris= new Ciutat ();
-		Paris.setNom("Paris");
-		Paris.setDescripcio("Amor");
-		Paris.setPreuVol(10);
-		
-		session.save(venecia);
-		session.save(Paris);
-		
-		Client pepe = new Client();
-		pepe.setDni("4356");
-		pepe.setNom("PEPE");
-		
-		session.save(pepe);
-		
-		session.getTransaction().commit();		
-		
 		CtrlContractarViatge ctrl = new CtrlContractarViatge();
+		ctrl.setDni("47884326M");
+		ctrl.setPreuH(10);
+		ctrl.setPreuVol(10);
+		Date d = new Date(2019-1900, 0, 15);
 		try {
-			ctrl.obteCiutats();
-			
-			Date d1 = new Date();
-			System.out.println(d1);
-			Date d2 = new Date();
-			d2.setYear(2014-1900);
-			System.out.println(d2);
-			ctrl.enregistraViatge("4356", d1, d2, "Venecia");
-//			session = PersistanceConfig.INSTANCE.getSession();
-			session = factory.getCurrentSession();
-			Transaction tx = session.beginTransaction();
-			
-			CtrlClient cc = CtrlDataFactoria.INSTANCE.getCtrlClient();
-			Client c = cc.get("4356");
-
-			System.out.println(c.getDni());
-			System.out.println(c.getNom());
-			System.out.println(c.getNombreViatges());
-			List<Viatge> viatges = c.getViatges();
-			System.out.println(viatges.size());
-			for (Viatge v : viatges) {
-				System.out.print(v.getDataInici() + " ");
-				System.out.print(v.getDataFi() + " ");
-				System.out.print(v.getCiutat().getNom() + " ");
-				System.out.print(v.getViatgePK().getClient().getDni());
-			}
-		} catch (NoHiHaCiutats e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JaTeViatge e) {
-			// TODO Auto-generated catch block
+			System.out.println(ctrl.pagament("1234567890123456", d));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
+		
+		
+////		Session session = PersistanceConfig.INSTANCE.getSession();
+//		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
+//		Session session = factory.getCurrentSession();
+//		session.beginTransaction();
+//
+//		Ciutat venecia= new Ciutat ();
+//		venecia.setNom("Venecia");
+//		venecia.setDescripcio("Canales");
+//		venecia.setPreuVol(5);
+//		
+//		Ciutat Paris= new Ciutat ();
+//		Paris.setNom("Paris");
+//		Paris.setDescripcio("Amor");
+//		Paris.setPreuVol(10);
+//		
+//		session.save(venecia);
+//		session.save(Paris);
+//		
+//		Client pepe = new Client();
+//		pepe.setDni("4356");
+//		pepe.setNom("PEPE");
+//		
+//		session.save(pepe);
+//		
+//		session.getTransaction().commit();		
+//		
+//		CtrlContractarViatge ctrl = new CtrlContractarViatge();
+//		try {
+//			ctrl.obteCiutats();
+//			
+//			Date d1 = new Date();
+//			System.out.println(d1);
+//			Date d2 = new Date();
+//			d2.setYear(2014-1900);
+//			System.out.println(d2);
+//			ctrl.enregistraViatge("4356", d1, d2, "Venecia");
+////			session = PersistanceConfig.INSTANCE.getSession();
+//			session = factory.getCurrentSession();
+//			Transaction tx = session.beginTransaction();
+//			
+//			CtrlClient cc = CtrlDataFactoria.INSTANCE.getCtrlClient();
+//			Client c = cc.get("4356");
+//
+//			System.out.println(c.getDni());
+//			System.out.println(c.getNom());
+//			System.out.println(c.getNombreViatges());
+//			List<Viatge> viatges = c.getViatges();
+//			System.out.println(viatges.size());
+//			for (Viatge v : viatges) {
+//				System.out.print(v.getDataInici() + " ");
+//				System.out.print(v.getDataFi() + " ");
+//				System.out.print(v.getCiutat().getNom() + " ");
+//				System.out.print(v.getViatgePK().getClient().getDni());
+//			}
+//		} catch (NoHiHaCiutats e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (JaTeViatge e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
 
 		
 		//		
