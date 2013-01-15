@@ -5,7 +5,7 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
-        package src;
+        package com.practica.as.ServeiDePagamentClient;
 
         
 
@@ -139,9 +139,9 @@
 
                     
 
-                            public  src.PagamentStub.PagarResponse pagar(
+                            public  com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse pagar(
 
-                            src.PagamentStub.Pagar pagar0)
+                            com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar pagar0)
                         
 
                     throws java.rmi.RemoteException
@@ -192,11 +192,11 @@
                 
                                 java.lang.Object object = fromOM(
                                              _returnEnv.getBody().getFirstElement() ,
-                                             src.PagamentStub.PagarResponse.class,
+                                             com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse.class,
                                               getEnvelopeNamespaces(_returnEnv));
 
                                
-                                        return (src.PagamentStub.PagarResponse)object;
+                                        return (com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse)object;
                                    
          }catch(org.apache.axis2.AxisFault f){
 
@@ -260,9 +260,9 @@
                 */
                 public  void startpagar(
 
-                 src.PagamentStub.Pagar pagar0,
+                 com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar pagar0,
 
-                  final src.PagamentCallbackHandler callback)
+                  final com.practica.as.ServeiDePagamentClient.PagamentCallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
@@ -306,10 +306,10 @@
                                 org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
                                 
                                         java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         src.PagamentStub.PagarResponse.class,
+                                                                         com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse.class,
                                                                          getEnvelopeNamespaces(resultEnv));
                                         callback.receiveResultpagar(
-                                        (src.PagamentStub.PagarResponse)object);
+                                        (com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse)object);
                                         
                             } catch (org.apache.axis2.AxisFault e) {
                                 callback.receiveErrorpagar(e);
@@ -1702,12 +1702,12 @@
 
         }
     
-            private  org.apache.axiom.om.OMElement  toOM(src.PagamentStub.Pagar param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(src.PagamentStub.Pagar.MY_QNAME,
+                             return param.getOMElement(com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1716,12 +1716,12 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(src.PagamentStub.PagarResponse param, boolean optimizeContent)
+            private  org.apache.axiom.om.OMElement  toOM(com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
             
                         try{
-                             return param.getOMElement(src.PagamentStub.PagarResponse.MY_QNAME,
+                             return param.getOMElement(com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1731,14 +1731,14 @@
             }
         
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, src.PagamentStub.Pagar param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                                         throws org.apache.axis2.AxisFault{
 
                                              
                                                     try{
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(src.PagamentStub.Pagar.MY_QNAME,factory));
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1768,16 +1768,16 @@
 
         try {
         
-                if (src.PagamentStub.Pagar.class.equals(type)){
+                if (com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar.class.equals(type)){
                 
-                           return src.PagamentStub.Pagar.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
            
-                if (src.PagamentStub.PagarResponse.class.equals(type)){
+                if (com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse.class.equals(type)){
                 
-                           return src.PagamentStub.PagarResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

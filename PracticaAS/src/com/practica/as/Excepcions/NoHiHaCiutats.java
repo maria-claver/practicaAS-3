@@ -1,4 +1,4 @@
-package Excepcions;
+package com.practica.as.Excepcions;
 
 public class NoHiHaCiutats extends Exception {
 	public NoHiHaCiutats(){}

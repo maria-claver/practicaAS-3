@@ -2,11 +2,11 @@ package com.practica.as.Adpters;
 
 import java.util.Date;
 
-import src.PagamentStub;
-import src.PagamentStub.Pagar;
-import src.PagamentStub.PagarResponse;
-import Excepcions.ServeiNoDisponible;
 
+import com.practica.as.Excepcions.ServeiNoDisponible;
+import com.practica.as.ServeiDePagamentClient.PagamentStub;
+import com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar;
+import com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse;
 import com.practica.as.ServiceLocator.ServiceLocator;
 
 public class AdaptadorAutoritza implements IAdaptadorAutoritza {

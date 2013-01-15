@@ -3,13 +3,13 @@ package com.practica.as.PresentationLayer;
 import java.util.Date;
 import java.util.HashSet;
 
-import Excepcions.HotelsNoLliures;
-import Excepcions.JaTeViatge;
-import Excepcions.NoHiHaCiutats;
-import Excepcions.ServeiNoDisponible;
 
 import com.practica.as.DomainControllers.CtrlContractarViatge;
 import com.practica.as.DomainModel.Pair;
+import com.practica.as.Excepcions.HotelsNoLliures;
+import com.practica.as.Excepcions.JaTeViatge;
+import com.practica.as.Excepcions.NoHiHaCiutats;
+import com.practica.as.Excepcions.ServeiNoDisponible;
 
 public class ContractarViatgeController {
 	

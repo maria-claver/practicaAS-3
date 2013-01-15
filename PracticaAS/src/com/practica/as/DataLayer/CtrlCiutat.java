@@ -12,7 +12,6 @@ import com.practica.as.DomainModel.Ciutat;
 
 public class CtrlCiutat implements ICtrlCiutat {
 	
-	@Override
 	public List<Ciutat> tots() {
 //		Session session = PersistanceConfig.INSTANCE.getSession();
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
@@ -24,7 +23,6 @@ public class CtrlCiutat implements ICtrlCiutat {
 		return tots;
 	}
 	
-	@Override
 	public Ciutat get(String nom){
 //		Session session = PersistanceConfig.INSTANCE.getSession(); 
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();

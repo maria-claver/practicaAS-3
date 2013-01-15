@@ -1,7 +1,8 @@
 package com.practica.as.ServiceLocator;
 
-import src.PagamentStub;
-import Excepcions.ServeiNoDisponible;
+import com.practica.as.Excepcions.ServeiNoDisponible;
+import com.practica.as.ServeiDePagamentClient.PagamentStub;
+
 
 public enum ServiceLocator {
 	// SINGLETON

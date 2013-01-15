@@ -9,7 +9,6 @@ import com.practica.as.DomainModel.Client;
 
 public class CtrlClient implements ICtrlClient {
 
-	@Override
 	public Client get(String dni) {
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
 		Session session = factory.getCurrentSession();
@@ -19,7 +18,6 @@ public class CtrlClient implements ICtrlClient {
 		return q;
 	}
 
-	@Override
 	public void saveOrUpdate(Client client) {
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
 		Session session = factory.getCurrentSession();

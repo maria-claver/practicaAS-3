@@ -2,7 +2,8 @@ package com.practica.as.Adpters;
 
 import java.util.Date;
 
-import Excepcions.ServeiNoDisponible;
+import com.practica.as.Excepcions.ServeiNoDisponible;
+
 
 public interface IAdaptadorAutoritza {
 

@@ -12,7 +12,6 @@ import com.practica.as.DomainModel.Viatge;
 
 public class CtrlViatge implements ICtrlViatge {
 	
-	@Override
 	public Viatge get(String dni, Date dataInici) {
 //		Session session = PersistanceConfig.INSTANCE.getSession(); 
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
@@ -29,7 +28,6 @@ public class CtrlViatge implements ICtrlViatge {
 		return v;
 	}
 
-	@Override
 	public Viatge get(Client client, Date dataInici) {
 //		Session session = PersistanceConfig.INSTANCE.getSession(); 
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
@@ -43,7 +41,6 @@ public class CtrlViatge implements ICtrlViatge {
 		return v;
 	}
 	
-	@Override
 	public void saveOrUpdate(Viatge viatge) {
 //		Session session = PersistanceConfig.INSTANCE.getSession();
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();

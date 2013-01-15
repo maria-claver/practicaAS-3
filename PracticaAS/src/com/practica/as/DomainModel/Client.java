@@ -10,7 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import Excepcions.JaTeViatge;
+import com.practica.as.Excepcions.JaTeViatge;
+
 
 @Entity
 public class Client {

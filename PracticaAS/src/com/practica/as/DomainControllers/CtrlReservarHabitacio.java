@@ -3,12 +3,12 @@ package com.practica.as.DomainControllers;
 import java.util.Date;
 import java.util.HashSet;
 
-import Excepcions.HotelsNoLliures;
 
 import com.practica.as.DataInterface.CtrlDataFactoria;
 import com.practica.as.DataLayer.CtrlViatge;
 import com.practica.as.DomainModel.Pair;
 import com.practica.as.DomainModel.Viatge;
+import com.practica.as.Excepcions.HotelsNoLliures;
 
 public class CtrlReservarHabitacio {
 

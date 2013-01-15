@@ -6,7 +6,7 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 
-    package src;
+    package com.practica.as.ServeiDePagamentClient;
 
     /**
      *  PagamentCallbackHandler Callback class, Users can extend this class and implement
@@ -49,7 +49,7 @@
             * override this method for handling normal response from pagar operation
             */
            public void receiveResultpagar(
-                    src.PagamentStub.PagarResponse result
+                    com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse result
                         ) {
            }
 

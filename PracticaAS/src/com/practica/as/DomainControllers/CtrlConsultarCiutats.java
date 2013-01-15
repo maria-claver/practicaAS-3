@@ -3,12 +3,12 @@ package com.practica.as.DomainControllers;
 import java.util.HashSet;
 import java.util.List;
 
-import Excepcions.NoHiHaCiutats;
 
 import com.practica.as.DataInterface.CtrlDataFactoria;
 import com.practica.as.DataLayer.CtrlCiutat;
 import com.practica.as.DomainModel.Ciutat;
 import com.practica.as.DomainModel.Pair;
+import com.practica.as.Excepcions.NoHiHaCiutats;
 
 public class CtrlConsultarCiutats {
 
