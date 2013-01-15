@@ -1,0 +1,11 @@
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+PracticaAS/.classpath
+PracticaAS/bin/**
+PracticaAS/src/hibernate.cfg.xml
+PracticaAS/src/log4j.properties
