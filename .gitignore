@@ -9,4 +9,8 @@ PracticaAS/.classpath
 PracticaAS/bin/**
 PracticaAS/src/hibernate.cfg.xml
 PracticaAS/src/log4j.properties
+ServeiDePagament/.classpath
+ServeiDePagament/bin/**
+ServeiDePagamentClient/.classpath
+ServeiDePagamentClient/bin/**
 .metadata/**
