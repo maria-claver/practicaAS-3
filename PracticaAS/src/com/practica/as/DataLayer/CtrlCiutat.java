@@ -10,6 +10,11 @@ import org.hibernate.Transaction;
 import com.practica.as.DataInterface.ICtrlCiutat;
 import com.practica.as.DomainModel.Ciutat;
 
+/**
+ * Controlador de Ciutat de la capa de dades
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public class CtrlCiutat implements ICtrlCiutat {
 	
 	public List<Ciutat> tots() {

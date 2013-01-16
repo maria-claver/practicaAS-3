@@ -11,6 +11,11 @@ import com.practica.as.DomainModel.Client;
 import com.practica.as.DomainModel.CmpKeyViatge;
 import com.practica.as.DomainModel.Viatge;
 
+/**
+ * Controlador de Viatge de la capa de dades
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public class CtrlViatge implements ICtrlViatge {
 	
 	public Viatge get(String dni, Date dataInici) {

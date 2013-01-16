@@ -14,6 +14,11 @@ import com.practica.as.DomainModel.HotelLowCost;
 import com.practica.as.DomainModel.HotelSuperior;
 import com.practica.as.DomainModel.Viatge;
 
+/**
+ * Configuració del mòdul de persistència automàtica (del Hibernate) 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public enum PersistanceConfig {
 	
 	// SINGLETON;

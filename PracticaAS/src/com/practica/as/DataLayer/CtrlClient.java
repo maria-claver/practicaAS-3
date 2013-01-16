@@ -7,6 +7,11 @@ import org.hibernate.Transaction;
 import com.practica.as.DataInterface.ICtrlClient;
 import com.practica.as.DomainModel.Client;
 
+/**
+ * Controlador de Client de la capa de dades
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public class CtrlClient implements ICtrlClient {
 
 	public Client get(String dni) {
