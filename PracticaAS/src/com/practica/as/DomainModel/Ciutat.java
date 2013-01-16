@@ -13,7 +13,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.classic.Session;
+
+import com.practica.as.DataLayer.PersistanceConfig;
 
 @Entity
 @Table(name ="CIUTAT")
@@ -50,7 +56,8 @@ public class Ciutat {
 		this.descripcio = descripcio;
 	}
 
-	@OneToMany(targetEntity=Hotel.class, mappedBy="hotelPK.ciutat", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(targetEntity=Hotel.class, mappedBy="hotelPK.ciutat", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	public List<Hotel> getHotels() {
 		return hotels;
 	}
@@ -62,6 +69,23 @@ public class Ciutat {
 	@Transient
 	public HashSet<Pair> getLlista(Date dataInici, Date dataFi){
 		HashSet<Pair> llista = new HashSet<Pair>();
+		
+//		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
+//		Session session = factory.getCurrentSession();
+//		session.beginTransaction();
+//		System.out.println(session.isOpen());
+		
+//		List<Hotel> hs = getHotels();
+		
+//		hs.get(0);
+		
+		System.out.println("MostraHotels: Ciutat");
+		System.out.println(this.descripcio);
+		System.out.println(this.nom);
+		System.out.println(this.preuVol);
+		System.out.println(this.hotels.size());
+		System.out.println(this.hotels.get(0).getNom());
+		
 		for (Hotel h : hotels) {
 			Integer r = h.getNumHabDisponible(dataInici, dataFi);
 			if (r != null) {
@@ -70,6 +94,9 @@ public class Ciutat {
 				llista.add(new Pair(nom, preu));
 			}
 		}
+		
+//		session.getTransaction().commit();
+		
 		return llista;
 	}
 	

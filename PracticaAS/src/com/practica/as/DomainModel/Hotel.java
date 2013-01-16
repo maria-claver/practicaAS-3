@@ -14,8 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
-import com.practica.as.DataLayer.CmpKeyHotel;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -34,7 +35,8 @@ public class Hotel {
 		this.hotelPK = hotelPK;
 	}
 
-	@OneToMany(targetEntity=Habitacio.class, mappedBy="habitacioPK.hotel", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(targetEntity=Habitacio.class, mappedBy="habitacioPK.hotel", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	public List<Habitacio> getHabitacions() {
 		return habitacions;
 	}
@@ -62,7 +64,7 @@ public class Hotel {
 	@Transient
 	public Integer getNumHabDisponible(Date di, Date df) {
 		Integer aux = null;
-		for (int i=0; i < habitacions.size() && aux != null; i++) {
+		for (int i=0; i < habitacions.size() && aux == null; i++) {
 			Habitacio h = habitacions.get(i);
 			aux = h.disponible(di, df);
 		}

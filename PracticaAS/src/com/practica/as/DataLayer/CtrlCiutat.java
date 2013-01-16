@@ -13,7 +13,6 @@ import com.practica.as.DomainModel.Ciutat;
 public class CtrlCiutat implements ICtrlCiutat {
 	
 	public List<Ciutat> tots() {
-//		Session session = PersistanceConfig.INSTANCE.getSession();
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
 		Session session = factory.getCurrentSession();
 		Transaction tx = session.beginTransaction();
@@ -24,7 +23,6 @@ public class CtrlCiutat implements ICtrlCiutat {
 	}
 	
 	public Ciutat get(String nom){
-//		Session session = PersistanceConfig.INSTANCE.getSession(); 
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
 		Session session = factory.getCurrentSession();
 		Transaction tx = session.beginTransaction();

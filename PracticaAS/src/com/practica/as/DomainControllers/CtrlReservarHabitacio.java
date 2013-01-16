@@ -19,11 +19,6 @@ public class CtrlReservarHabitacio {
 		
 	}
 	
-/*	public CtrlReservarHabitacio(String dni, Date dataInici) {
-		this.dni = dni;
-		this.dataInici = dataInici;
-	}*/
-	
 	public HashSet<Pair> mostraHotelsLliures(String dni, Date dataInici) throws HotelsNoLliures {
 		this.dni = dni;
 		this.dataInici = dataInici;

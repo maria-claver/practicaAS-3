@@ -19,7 +19,6 @@ public class CtrlConsultarCiutats {
 		if (ll.isEmpty()) throw new NoHiHaCiutats();
 		for (Ciutat l : ll) {
 			String nom = l.getNom();
-			System.out.println(l.getNom());
 			float preuV = l.getPreuVol();
 			resultat.add(new Pair(nom, preuV));
 		}

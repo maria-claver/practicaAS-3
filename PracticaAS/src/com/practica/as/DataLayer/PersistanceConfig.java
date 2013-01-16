@@ -1,7 +1,9 @@
 package com.practica.as.DataLayer;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.classic.Session;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import com.practica.as.DomainModel.Ciutat;
@@ -18,6 +20,7 @@ public enum PersistanceConfig {
 	INSTANCE;
 	
 	private SessionFactory factory;
+	private Session session;
 
 	private PersistanceConfig() {
 		AnnotationConfiguration configuration = new AnnotationConfiguration();
@@ -33,8 +36,13 @@ public enum PersistanceConfig {
 		new SchemaExport(configuration).create(true, true);
 
 		factory = configuration.buildSessionFactory();
+		session = factory.getCurrentSession();
+		
 	}
 
+	public Transaction getTransaction() {
+		return session.beginTransaction();
+	}
 	
 	public SessionFactory getFactory() {
 		return factory;

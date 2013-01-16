@@ -1,25 +1,24 @@
 package com.practica.as.DomainModel;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.Check;
 
-import com.practica.as.DataLayer.CmpKeyHabitacio;
 
 @Entity
-@Check (constraints = "numero>0")
+@Check (constraints = "numero > 0")
 public class Habitacio {
 	
 	private Set<Viatge> viatges = new HashSet<Viatge>();
@@ -32,8 +31,9 @@ public class Habitacio {
 	public void setHabitacioPK(CmpKeyHabitacio habitacioPK) {
 		this.habitacioPK = habitacioPK;
 	}
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name="Reserva", 
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name="Reserva",
 			joinColumns={
 				@JoinColumn (name="ciutat"),
 				@JoinColumn (name="hotel"),
@@ -53,9 +53,9 @@ public class Habitacio {
 	public Integer disponible(Date di, Date df) {
 		boolean aux = true;
 		Integer nhab = null;
-		Viatge[] arrayViatges = (Viatge[]) viatges.toArray();
-		for (int i=0; i < arrayViatges.length && aux; i++) {
-			Viatge v = arrayViatges[i];
+		Iterator<Viatge> it = viatges.iterator();
+		while(it.hasNext() && aux) {
+			Viatge v = it.next();
 			aux = v.estaDisponible(di, df);
 		}
 		if (aux) {

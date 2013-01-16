@@ -3,13 +3,11 @@ package com.practica.as.DomainControllers;
 import java.util.Date;
 import java.util.HashSet;
 
-
 import com.practica.as.Adpters.AdaptadorAutoritza;
 import com.practica.as.Adpters.Factoria;
 import com.practica.as.DataInterface.CtrlDataFactoria;
 import com.practica.as.DataLayer.CtrlCiutat;
 import com.practica.as.DataLayer.CtrlClient;
-import com.practica.as.DataLayer.CtrlViatge;
 import com.practica.as.DomainModel.Ciutat;
 import com.practica.as.DomainModel.Client;
 import com.practica.as.DomainModel.Pair;
@@ -66,30 +64,30 @@ public class CtrlContractarViatge {
 	
 	public boolean pagament(String numTarg, Date dC) throws ServeiNoDisponible {
 		Date dAvui = new Date();
-		boolean after = dC.after(dAvui);
 		float importTotal = this.preuVol + this.preuH;
 		AdaptadorAutoritza aa = Factoria.INSTANCE.getAdaptadorAutoritza();
 		boolean b = aa.pagament(dni, numTarg, importTotal, dC, dAvui);
 		return b;
 	}
 	
-	public float getPreuVol() {
-		return preuVol;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
-	public void setPreuVol(float preuVol) {
-		this.preuVol = preuVol;
-	}
-
-	public void setPreuH(float preuH) {
-		this.preuH = preuH;
-	}
 	
-	
+	public String getNom() {return nom;}
+	public void setNom(String nom) {this.nom = nom;}
+
+	public String getDni() {return dni;}
+	public void setDni(String dni) {this.dni = dni;}
+
+	public Date getDataInici() {return dataInici;}
+	public void setDataInici(Date dataInici) {this.dataInici = dataInici;}
+
+	public Date getDataFi() {return dataFi;}
+	public void setDataFi(Date dataFi) {this.dataFi = dataFi;}
+
+	public float getPreuVol() {return preuVol;}
+	public void setPreuVol(float preuVol) {this.preuVol = preuVol;}
+
+	public float getPreuH() {return preuH;}
+	public void setPreuH(float preuH) {this.preuH = preuH;}
 	
 	
 }

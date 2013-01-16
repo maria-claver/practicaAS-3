@@ -1,13 +1,13 @@
-package com.practica.as.DataLayer;
+package com.practica.as.DomainModel;
 
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
-import com.practica.as.DomainModel.Hotel;
 
 @Embeddable
 public class CmpKeyHabitacio implements Serializable {
@@ -22,7 +22,7 @@ public class CmpKeyHabitacio implements Serializable {
 		this.numero = numero;
 	}
 	
-	@ManyToOne(targetEntity=Hotel.class)
+	@ManyToOne(targetEntity=Hotel.class, fetch = FetchType.LAZY)
 	@JoinColumns({@JoinColumn(name="nom_hotel"), @JoinColumn(name="ciutat_hotel")})
 	public Hotel getHotel() {
 		return hotel;
