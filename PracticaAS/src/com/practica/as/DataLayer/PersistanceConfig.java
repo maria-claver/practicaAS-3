@@ -38,6 +38,7 @@ public enum PersistanceConfig {
 		configuration.addAnnotatedClass(Ciutat.class);
 		
 		configuration.configure("hibernate.cfg.xml");
+		// comentar on release
 		new SchemaExport(configuration).create(true, true);
 
 		factory = configuration.buildSessionFactory();

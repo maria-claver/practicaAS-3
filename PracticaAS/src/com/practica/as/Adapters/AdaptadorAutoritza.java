@@ -9,6 +9,12 @@ import com.practica.as.ServeiDePagamentClient.PagamentStub.Pagar;
 import com.practica.as.ServeiDePagamentClient.PagamentStub.PagarResponse;
 import com.practica.as.ServiceLocator.ServiceLocator;
 
+/**
+ * Adaptador del servei extern de pagament
+ * 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public class AdaptadorAutoritza implements IAdaptadorAutoritza {
 
 	public boolean pagament(String dni, String numT, float importTotal, Date dC, Date dAvui) throws ServeiNoDisponible {
