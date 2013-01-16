@@ -4,6 +4,11 @@ import com.practica.as.DataLayer.CtrlCiutat;
 import com.practica.as.DataLayer.CtrlClient;
 import com.practica.as.DataLayer.CtrlViatge;
 
+/**
+ * Factoria dels controladors de la capa de dades
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public enum CtrlDataFactoria {
 	// SINGLETON
 
@@ -19,7 +24,7 @@ public enum CtrlDataFactoria {
 	public ICtrlCiutat getCtrlCiutat() {
 		return ctrlCiutat;
 	}
-	
+
 	public ICtrlViatge getCtrlViatge() {
 		return ctrlViatge;
 	}
