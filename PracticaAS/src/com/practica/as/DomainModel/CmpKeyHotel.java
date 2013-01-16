@@ -7,7 +7,12 @@ import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
-
+/**
+ * Classe auxiliar d'Hotel: clau primaria composta
+ * 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 @Embeddable
 public class CmpKeyHotel implements Serializable{
 
@@ -22,18 +27,10 @@ public class CmpKeyHotel implements Serializable{
 	}
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-	public Ciutat getCiutat() {
-		return ciutat;
-	}
-	public void setCiutat(Ciutat ciutat) {
-		this.ciutat = ciutat;
-	}
+	public Ciutat getCiutat() {return ciutat;}
+	public void setCiutat(Ciutat ciutat) {this.ciutat = ciutat;}
 
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+	public String getNom() {return nom;}
+	public void setNom(String nom) {this.nom = nom;}
 	
 }

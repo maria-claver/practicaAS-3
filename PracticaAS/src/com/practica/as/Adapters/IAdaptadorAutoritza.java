@@ -1,4 +1,4 @@
-package com.practica.as.Adpters;
+package com.practica.as.Adapters;
 
 import java.util.Date;
 

@@ -3,18 +3,31 @@ package com.practica.as.DomainControllers;
 import java.util.HashSet;
 import java.util.List;
 
-
 import com.practica.as.DataInterface.CtrlDataFactoria;
-import com.practica.as.DataLayer.CtrlCiutat;
+import com.practica.as.DataInterface.ICtrlCiutat;
 import com.practica.as.DomainModel.Ciutat;
 import com.practica.as.DomainModel.Pair;
 import com.practica.as.Excepcions.NoHiHaCiutats;
 
+/**
+ * Controlador de Domini del cas d'us Consultar Ciutats
+ * 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 public class CtrlConsultarCiutats {
 
+	/**
+	 * Consulta el llistat de noms i preus de vol de totes les Ciutats del sistema
+	 * 
+	 * @return
+	 * 		Llista de noms i preus de vol de les Ciutats del sistema
+	 * @throws NoHiHaCiutats
+	 * 		No hi ha cap Ciutat al sistema
+	 */
 	public HashSet<Pair> obteCiutats() throws NoHiHaCiutats {
 		HashSet<Pair> resultat = new HashSet<Pair>();
-		CtrlCiutat c = CtrlDataFactoria.INSTANCE.getCtrlCiutat();
+		ICtrlCiutat c = CtrlDataFactoria.INSTANCE.getCtrlCiutat();
 		List<Ciutat> ll = c.tots();
 		if (ll.isEmpty()) throw new NoHiHaCiutats();
 		for (Ciutat l : ll) {

@@ -8,7 +8,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
-
+/**
+ * Classe auxiliar d'Habitacio: clau primaria composta
+ * 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 @Embeddable
 public class CmpKeyHabitacio implements Serializable {
 	
@@ -24,19 +29,11 @@ public class CmpKeyHabitacio implements Serializable {
 	
 	@ManyToOne(targetEntity=Hotel.class, fetch = FetchType.LAZY)
 	@JoinColumns({@JoinColumn(name="nom_hotel"), @JoinColumn(name="ciutat_hotel")})
-	public Hotel getHotel() {
-		return hotel;
-	}
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
-	}
+	public Hotel getHotel() {return hotel;}
+	public void setHotel(Hotel hotel) {this.hotel = hotel;}
 
-	public int getNumero() {
-		return numero;
-	}
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
+	public int getNumero() {return numero;}
+	public void setNumero(int numero) {this.numero = numero;}
 	
 	
 	

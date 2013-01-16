@@ -10,7 +10,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
+/**
+ * Classe auxiliar de Viatge: clau primaria composta 
+ * 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 @Embeddable
 public class CmpKeyViatge implements Serializable {
 	
@@ -25,20 +30,11 @@ public class CmpKeyViatge implements Serializable {
 	}
 
 	@ManyToOne(targetEntity = Client.class, cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	public Client getClient() {
-		return client;
-	}
-	
-	public void setClient(Client client) {
-		this.client = client;
-	}
+	public Client getClient() {return client;}
+	public void setClient(Client client) {this.client = client;}
 
 	@Temporal(TemporalType.DATE)
-	public Date getDataInici() {
-		return dataInici;
-	}
-	public void setDataInici(Date dataInici) {
-		this.dataInici = dataInici;
-	}
+	public Date getDataInici() {return dataInici;}
+	public void setDataInici(Date dataInici) {this.dataInici = dataInici;}
 	
 }

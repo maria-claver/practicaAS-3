@@ -14,27 +14,24 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Check;
-import org.hibernate.classic.Session;
 
-import com.practica.as.DataLayer.PersistanceConfig;
-
-
+/**
+ * Representacio de la classe de Domini Habitacio
+ * 
+ * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ *
+ */
 @Entity
 @Check (constraints = "numero > 0")
 public class Habitacio {
 	
-	private Set<Viatge> viatges = new HashSet<Viatge>();
 	private CmpKeyHabitacio habitacioPK;
+	private Set<Viatge> viatges = new HashSet<Viatge>();
 	
 	@Id
-	public CmpKeyHabitacio getHabitacioPK() {
-		return habitacioPK;
-	}
-	public void setHabitacioPK(CmpKeyHabitacio habitacioPK) {
-		this.habitacioPK = habitacioPK;
-	}
+	public CmpKeyHabitacio getHabitacioPK() {return habitacioPK;}
+	public void setHabitacioPK(CmpKeyHabitacio habitacioPK) {this.habitacioPK = habitacioPK;}
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name="Reserva",
@@ -47,13 +44,22 @@ public class Habitacio {
 				@JoinColumn(name="client"),
 				@JoinColumn(name="data_inci"),
 				})
-	public Set<Viatge> getViatges() {
-		return viatges;
-	}
-	public void setViatges(Set<Viatge> viatges) {
-		this.viatges = viatges;
-	}
+	public Set<Viatge> getViatges() {return viatges;}
+	public void setViatges(Set<Viatge> viatges) {this.viatges = viatges;}
 	
+	@Transient
+	public Integer getNumero() {return habitacioPK.getNumero();}
+
+	/**
+	 * Consulta si l'Habitacio esta disponible per un rang de dates donat
+	 * 
+	 * @param di
+	 * 		Data d'inici del rang de dates a consultar
+	 * @param df
+	 * 		Data de fi del rang de dates a consultar
+	 * @return
+	 * 		El numero de l'Habitacio si esta disponible, null si no.
+	 */
 	public Integer disponible(Date di, Date df) {
 		boolean aux = true;
 		Integer nhab = null;
@@ -67,22 +73,15 @@ public class Habitacio {
 		}
 		return nhab;
 	}
-	
-	@Transient
-	public Integer getNumero() {
-		return habitacioPK.getNumero();
-	}
-	
+		
+	/**
+	 * Afegeix un Viatge donat a la col·leccio de reserves de l'Habitacio
+	 * 
+	 * @param v
+	 * 		Objecte Viatge a afegir
+	 */
 	public void setViatge(Viatge v) {
-//		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
-//		Session session = factory.getCurrentSession();
-//		session.beginTransaction();
-//
 		viatges.add(v);
-//		session.saveOrUpdate(this);
-//		
-//		session.getTransaction().commit();
-//		
 	}
 
 }
