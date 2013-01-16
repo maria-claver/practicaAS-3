@@ -33,6 +33,7 @@ public class CtrlReservarHabitacio {
 		CtrlViatge cv = CtrlDataFactoria.INSTANCE.getCtrlViatge();
 		Viatge v = cv.get(dni, dataInici);
 		float preuH = v.reservaHabitacio(nomH);
+		cv.saveOrUpdate(v);
 		return preuH;
 	}
 	

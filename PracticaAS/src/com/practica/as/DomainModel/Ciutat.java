@@ -70,22 +70,6 @@ public class Ciutat {
 	public HashSet<Pair> getLlista(Date dataInici, Date dataFi){
 		HashSet<Pair> llista = new HashSet<Pair>();
 		
-//		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
-//		Session session = factory.getCurrentSession();
-//		session.beginTransaction();
-//		System.out.println(session.isOpen());
-		
-//		List<Hotel> hs = getHotels();
-		
-//		hs.get(0);
-		
-		System.out.println("MostraHotels: Ciutat");
-		System.out.println(this.descripcio);
-		System.out.println(this.nom);
-		System.out.println(this.preuVol);
-		System.out.println(this.hotels.size());
-		System.out.println(this.hotels.get(0).getNom());
-		
 		for (Hotel h : hotels) {
 			Integer r = h.getNumHabDisponible(dataInici, dataFi);
 			if (r != null) {
@@ -94,8 +78,6 @@ public class Ciutat {
 				llista.add(new Pair(nom, preu));
 			}
 		}
-		
-//		session.getTransaction().commit();
 		
 		return llista;
 	}
@@ -106,7 +88,7 @@ public class Ciutat {
 		for (int i=0; i < hotels.size() && !fi; i++) {
 			Hotel h = hotels.get(i);
 			String nom = h.getNom();
-			fi = nom == nomH;
+			fi = nom.equals(nomH);
 			if (fi) {
 				preuH = h.reservaHabitacio(v, dataInici, dataFi);
 			}

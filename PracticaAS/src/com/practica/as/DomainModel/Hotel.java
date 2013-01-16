@@ -80,7 +80,7 @@ public class Hotel {
 		Integer numH = getNumHabDisponible(di, df);
 		boolean fi = false;
 		float preuH = 0;
-		for (int i=0; i < habitacions.size() && fi; i++) {
+		for (int i=0; i < habitacions.size() && !fi; i++) {
 			Habitacio h = habitacions.get(i);
 			int numero = h.getNumero();
 			fi = numH == numero;

@@ -14,7 +14,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Check;
+import org.hibernate.classic.Session;
+
+import com.practica.as.DataLayer.PersistanceConfig;
 
 
 @Entity
@@ -70,7 +74,15 @@ public class Habitacio {
 	}
 	
 	public void setViatge(Viatge v) {
+//		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
+//		Session session = factory.getCurrentSession();
+//		session.beginTransaction();
+//
 		viatges.add(v);
+//		session.saveOrUpdate(this);
+//		
+//		session.getTransaction().commit();
+//		
 	}
 
 }
