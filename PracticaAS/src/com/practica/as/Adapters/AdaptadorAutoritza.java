@@ -12,7 +12,7 @@ import com.practica.as.ServiceLocator.ServiceLocator;
 /**
  * Adaptador del servei extern de pagament
  * 
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public class AdaptadorAutoritza implements IAdaptadorAutoritza {

@@ -13,7 +13,8 @@ import com.practica.as.DomainModel.Viatge;
 
 /**
  * Controlador de Viatge de la capa de dades
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * 
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public class CtrlViatge implements ICtrlViatge {
@@ -37,7 +38,7 @@ public class CtrlViatge implements ICtrlViatge {
 		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		session.saveOrUpdate(viatge);
+		session.merge(viatge);
 		session.getTransaction().commit();
 	}
 	

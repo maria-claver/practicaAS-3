@@ -14,13 +14,14 @@ import com.practica.as.Excepcions.ServeiNoDisponible;
 public class ContractarViatgeController {
 	
 	private CtrlContractarViatge ctrlContractarViatge = new CtrlContractarViatge();
-	private ContractarViatgeView vista = new ContractarViatgeView();
+	private ContractarViatgeView vista;
 	
-	public void iniciarContractar() {
-		vista.mostraIniciarContractar();
+	public ContractarViatgeController(ContractarViatgeView vista){
+		this.vista = vista;
 	}
 	
 	public void contractar() {
+		
 		try {
 			HashSet<Pair> ciutatsPreus = ctrlContractarViatge.obteCiutats();
 			vista.mostraCiutatsIPreus(ciutatsPreus);
@@ -33,10 +34,11 @@ public class ContractarViatgeController {
 		try {
 			ctrlContractarViatge.enregistraViatge(dni, dIni, dFi, ciutat);
 			vista.mostraEscullPagarOReservarHabitacio();
-		} catch (JaTeViatge e) {
-			vista.mostraError("El client ja té un viatge contractat per a aquestes dates");
-		} catch (ClientNoExisteix e) {
-			vista.mostraError("El client no existeix");
+		}catch (JaTeViatge e) {
+            vista.mostraError("El client ja té un viatge contractat per a aquestes dates");
+		}catch (ClientNoExisteix e) {
+			vista.mostraError("El sistema no té cap client identificat amb aquest DNI a la base de dades");
+			//e.printStackTrace();
 		}
 	}
 	

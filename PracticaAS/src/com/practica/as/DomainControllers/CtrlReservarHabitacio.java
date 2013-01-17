@@ -10,9 +10,9 @@ import com.practica.as.DomainModel.Viatge;
 import com.practica.as.Excepcions.HotelsNoLliures;
 
 /**
- * Controlador de Domini del cas d'us Reservar Habitacio
+ * Controlador de Domini del cas d'ús Reservar Habitació
  * 
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public class CtrlReservarHabitacio {
@@ -23,8 +23,8 @@ public class CtrlReservarHabitacio {
 	public CtrlReservarHabitacio() {}
 	
 	/**
-	 * Consulta el llistat de noms i preus dels Hotels de la Ciutat del cas d'us 
-	 * que tenen Habitacions disponibles en el rang de dates del cas d'us
+	 * Consulta el llistat de noms i preus dels Hotels de la Ciutat del cas d'ús 
+	 * que tenen Habitacions disponibles en el rang de dates del cas d'ús
 	 * 
 	 * @return
 	 * 		Llistat de noms i preus dels Hotels disponibles
@@ -42,7 +42,7 @@ public class CtrlReservarHabitacio {
 	}
 	
 	/**
-	 * Efectua la reserva d'una Habitacio de l'Hotel indicat per al Viatge del cas d'us
+	 * Efectua la reserva d'una Habitació de l'Hotel indicat per al Viatge del cas d'ús
 	 * 
 	 * @param nomH
 	 * 		Nom de l'Hotel on es vol fer la reserva

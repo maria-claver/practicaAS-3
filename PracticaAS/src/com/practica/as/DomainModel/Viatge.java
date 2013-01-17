@@ -81,7 +81,7 @@ public class Viatge {
 	 * 		Si els rangs de dates se solapen o no 
 	 */
 	public boolean estaDisponible(Date di, Date df) {
-		return getDataInici().after(df) && dataFi.before(di); 
+		return getDataInici().after(df) || dataFi.before(di); 
 	}
 
 	/**

@@ -18,9 +18,9 @@ import com.practica.as.Excepcions.NoHiHaCiutats;
 import com.practica.as.Excepcions.ServeiNoDisponible;
 
 /**
- * Controlador de Domini del cas d'us Contractar Viatge 
+ * Controlador de Domini del cas d'ús Contractar Viatge 
  * 
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats  
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats  
  *
  */
 public class CtrlContractarViatge {
@@ -61,7 +61,7 @@ public class CtrlContractarViatge {
 	 * @param nom
 	 * 		Nom de la Ciutat on es defineix el nou Viatge
 	 * @throws JaTeViatge
-	 * 		El Client ja te un Viatge contractat en el rang de dates indicades
+	 * 		El Client ja té un Viatge contractat en el rang de dates indicades
 	 */
 	public void enregistraViatge(String dni, Date dataInici, Date dataFi, String nom) throws JaTeViatge, ClientNoExisteix {
 		ICtrlClient cClient = CtrlDataFactoria.INSTANCE.getCtrlClient();
@@ -80,8 +80,8 @@ public class CtrlContractarViatge {
 	}
 	
 	/**
-	 * Consulta el llistat de noms i preus dels Hotels de la Ciutat del cas d'us 
-	 * que tenen Habitacions disponibles en el rang de dates del cas d'us
+	 * Consulta el llistat de noms i preus dels Hotels de la Ciutat del cas d'ús 
+	 * que tenen Habitacions disponibles en el rang de dates del cas d'ús
 	 * 
 	 * @return
 	 * 		Llistat de noms i preus dels Hotels disponibles
@@ -95,7 +95,7 @@ public class CtrlContractarViatge {
 	}
 	
 	/**
-	 * Efectua la reserva d'una Habitacio de l'Hotel indicat per al Viatge del cas d'us
+	 * Efectua la reserva d'una Habitació de l'Hotel indicat per al Viatge del cas d'ús
 	 * 
 	 * @param nomH
 	 * 		Nom de l'Hotel on es vol fer la reserva
@@ -109,16 +109,16 @@ public class CtrlContractarViatge {
 	}
 	
 	/**
-	 * Efectua el pagament del Viatge contractat per mitja d'un servei extern de pagament
+	 * Efectua el pagament del Viatge contractat per mitjà d'un servei extern de pagament
 	 * 
 	 * @param numTarg
-	 * 		Numero de la targeta de credit del Client que contracta el Viatge
+	 * 		Número de la targeta de crèdit del Client que contracta el Viatge
 	 * @param dC
-	 * 		Data de caducitat de la targeta de credit
+	 * 		Data de caducitat de la targeta de crèdit
 	 * @return
 	 * 		Si s'ha pogut efectuar el pagament o no
 	 * @throws ServeiNoDisponible
-	 * 		El servei de pagament extern no esta disponible i no es pot efectuar el pagament
+	 * 		El servei de pagament extern no està disponible i no es pot efectuar el pagament
 	 */
 	public boolean pagament(String numTarg, Date dC) throws ServeiNoDisponible {
 		Date dAvui = new Date();

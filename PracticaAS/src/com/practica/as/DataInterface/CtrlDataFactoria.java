@@ -7,7 +7,7 @@ import com.practica.as.DataLayer.CtrlViatge;
 /**
  * Factoria dels controladors de la capa de dades
  * 
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public enum CtrlDataFactoria {

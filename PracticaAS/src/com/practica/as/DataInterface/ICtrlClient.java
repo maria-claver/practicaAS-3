@@ -5,7 +5,8 @@ import com.practica.as.Excepcions.ClientNoExisteix;
 
 /**
  * Interfície del controlador de Client de la capa de dades
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * 
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public interface ICtrlClient {
@@ -21,7 +22,7 @@ public interface ICtrlClient {
 	public Client get(String dni) throws ClientNoExisteix;
 	
 	/**
-	 * Indica que s'ha de passar a la base de dades els canvis efectuats al client indicat,
+	 * Indica que s'han de passar a la base de dades els canvis efectuats al client indicat,
 	 * ja sigui un objecte client nou o modificat
 	 * 
 	 * @param client

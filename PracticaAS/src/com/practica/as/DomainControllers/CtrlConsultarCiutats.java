@@ -10,9 +10,9 @@ import com.practica.as.DomainModel.Pair;
 import com.practica.as.Excepcions.NoHiHaCiutats;
 
 /**
- * Controlador de Domini del cas d'us Consultar Ciutats
+ * Controlador de Domini del cas d'ús Consultar Ciutats
  * 
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public class CtrlConsultarCiutats {

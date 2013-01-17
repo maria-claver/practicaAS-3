@@ -6,7 +6,8 @@ import com.practica.as.DomainModel.Viatge;
 
 /**
  * Interfície del controlador de Viatge de la capa de dades
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * 
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public interface ICtrlViatge {
@@ -24,7 +25,7 @@ public interface ICtrlViatge {
 	public Viatge get(String dni, Date dataInici);
 	
 	/**
-	 * Indica que s'ha de passar a la base de dades els canvis efectuats al viatge indicat,
+	 * Indica que s'han de passar a la base de dades els canvis efectuats al viatge indicat,
 	 * ja sigui un objecte viatge nou o modificat
 	 * 
 	 * @param viatge

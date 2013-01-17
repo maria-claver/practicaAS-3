@@ -1,10 +1,7 @@
 package com.practica.as.DataLayer;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.classic.Session;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import com.practica.as.DomainModel.Ciutat;
 import com.practica.as.DomainModel.Client;
@@ -15,8 +12,9 @@ import com.practica.as.DomainModel.HotelSuperior;
 import com.practica.as.DomainModel.Viatge;
 
 /**
- * Configuració del mòdul de persistència automàtica (del Hibernate) 
- * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
+ * Configuració del mòdul de persistència automàtica (Hibernate)
+ * 
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
  *
  */
 public enum PersistanceConfig {
@@ -25,7 +23,6 @@ public enum PersistanceConfig {
 	INSTANCE;
 	
 	private SessionFactory factory;
-	private Session session;
 
 	private PersistanceConfig() {
 		AnnotationConfiguration configuration = new AnnotationConfiguration();
@@ -38,18 +35,14 @@ public enum PersistanceConfig {
 		configuration.addAnnotatedClass(Ciutat.class);
 		
 		configuration.configure("hibernate.cfg.xml");
+
 		// comentar on release
-		new SchemaExport(configuration).create(true, true);
+//		new SchemaExport(configuration).create(true, true);
 
 		factory = configuration.buildSessionFactory();
-		session = factory.getCurrentSession();
-		
+				
 	}
 
-	public Transaction getTransaction() {
-		return session.beginTransaction();
-	}
-	
 	public SessionFactory getFactory() {
 		return factory;
 	}

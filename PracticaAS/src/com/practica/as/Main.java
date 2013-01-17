@@ -1,32 +1,65 @@
 package com.practica.as;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.classic.Session;
+import java.awt.EventQueue;
 
-import com.practica.as.DataLayer.PersistanceConfig;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.classic.Session;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
+
 import com.practica.as.DomainModel.Ciutat;
 import com.practica.as.DomainModel.Client;
 import com.practica.as.DomainModel.CmpKeyHabitacio;
 import com.practica.as.DomainModel.CmpKeyHotel;
 import com.practica.as.DomainModel.Habitacio;
 import com.practica.as.DomainModel.Hotel;
+import com.practica.as.DomainModel.HotelLowCost;
+import com.practica.as.DomainModel.HotelSuperior;
+import com.practica.as.DomainModel.Viatge;
 import com.practica.as.PresentationLayer.ContractarViatgeView;
 
-
+/**
+ * 
+ * @author Aida Albalate, Maria Claver, Borja González, Oriac Pérez, Joan Subirats
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {
 		if (args.length == 0) {
 			System.out.println("no args");
-			omplirDBDefault();
+			//omplirDBDefault();
 		} else {
 			System.out.println("args: " + args[0]);
 		}
-		new ContractarViatgeView();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ContractarViatgeView pantalla = new ContractarViatgeView();
+					pantalla.setTitle("Contractar Viatge");
+					pantalla.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 	
 	private static void omplirDBDefault() {
-		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
+		AnnotationConfiguration config = new AnnotationConfiguration();
+		config.addAnnotatedClass(Hotel.class);
+		config.addAnnotatedClass(HotelSuperior.class);
+		config.addAnnotatedClass(HotelLowCost.class);
+		config.addAnnotatedClass(Habitacio.class);
+		config.addAnnotatedClass(Client.class);
+		config.addAnnotatedClass(Viatge.class);
+		config.addAnnotatedClass(Ciutat.class);
+		config.configure("hibernate.cfg.xml");
+		
+		new SchemaExport(config).create(true, true);
+		
+		SessionFactory factory = config.buildSessionFactory();
+		
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		
@@ -43,14 +76,16 @@ public class Main {
 		paris.setPreuVol(70);
 		session.save(paris);
 		
+		
+		
 		// insertar clients
 		Client maria = new Client();
-		maria.setDni("47884326M");
+		maria.setDni("12345678Z");
 		maria.setNom("Maria");
 		session.save(maria);
 		
 		Client aida = new Client();
-		aida.setDni("47609687D");
+		aida.setDni("87654321X");
 		aida.setNom("Aida");
 		session.save(aida);
 		

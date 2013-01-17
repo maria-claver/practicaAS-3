@@ -40,7 +40,7 @@ public class Hotel {
 	public void setPreu(float preu) {this.preu = preu;}
 
 	@OneToMany(targetEntity=Habitacio.class, mappedBy="habitacioPK.hotel", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
+	@Fetch(value = FetchMode.SELECT)
 	public List<Habitacio> getHabitacions() {return habitacions;}
 	public void setHabitacions(List<Habitacio> habitacions) {this.habitacions = habitacions;}
 

@@ -18,7 +18,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 /**
- * Representacio de la classe de Domini Ciutat
+ * Representació de la classe de Domini Ciutat
  * 
  * @author Aida Albalate, Maria Claver, Borja Gonzalez, Oriac Perez, Joan Subirats
  *
