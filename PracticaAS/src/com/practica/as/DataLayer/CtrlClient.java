@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 
 import com.practica.as.DataInterface.ICtrlClient;
 import com.practica.as.DomainModel.Client;
+import com.practica.as.Excepcions.ClientNoExisteix;
 
 /**
  * Controlador de Client de la capa de dades
@@ -14,13 +15,17 @@ import com.practica.as.DomainModel.Client;
  */
 public class CtrlClient implements ICtrlClient {
 
-	public Client get(String dni) {
-		SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
-		Session session = factory.getCurrentSession();
-		Transaction tx = session.beginTransaction();
-		Client q = (Client) session.get(Client.class, dni);
-		tx.commit();
-		return q;
+	public Client get(String dni) throws ClientNoExisteix {
+		try {
+			SessionFactory factory = PersistanceConfig.INSTANCE.getFactory();
+			Session session = factory.getCurrentSession();
+			Transaction tx = session.beginTransaction();
+			Client q = (Client) session.get(Client.class, dni);
+			tx.commit();
+			return q;
+		} catch (Exception e) {
+			throw new ClientNoExisteix();
+		}
 	}
 
 	public void saveOrUpdate(Client client) {

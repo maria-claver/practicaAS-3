@@ -3,9 +3,9 @@ package com.practica.as.PresentationLayer;
 import java.util.Date;
 import java.util.HashSet;
 
-
 import com.practica.as.DomainControllers.CtrlContractarViatge;
 import com.practica.as.DomainModel.Pair;
+import com.practica.as.Excepcions.ClientNoExisteix;
 import com.practica.as.Excepcions.HotelsNoLliures;
 import com.practica.as.Excepcions.JaTeViatge;
 import com.practica.as.Excepcions.NoHiHaCiutats;
@@ -34,7 +34,9 @@ public class ContractarViatgeController {
 			ctrlContractarViatge.enregistraViatge(dni, dIni, dFi, ciutat);
 			vista.mostraEscullPagarOReservarHabitacio();
 		} catch (JaTeViatge e) {
-			vista.mostraError("Client no existeix");
+			vista.mostraError("El client ja té un viatge contractat per a aquestes dates");
+		} catch (ClientNoExisteix e) {
+			vista.mostraError("El client no existeix");
 		}
 	}
 	

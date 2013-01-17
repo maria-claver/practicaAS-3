@@ -11,6 +11,7 @@ import com.practica.as.DataInterface.ICtrlClient;
 import com.practica.as.DomainModel.Ciutat;
 import com.practica.as.DomainModel.Client;
 import com.practica.as.DomainModel.Pair;
+import com.practica.as.Excepcions.ClientNoExisteix;
 import com.practica.as.Excepcions.HotelsNoLliures;
 import com.practica.as.Excepcions.JaTeViatge;
 import com.practica.as.Excepcions.NoHiHaCiutats;
@@ -62,7 +63,7 @@ public class CtrlContractarViatge {
 	 * @throws JaTeViatge
 	 * 		El Client ja te un Viatge contractat en el rang de dates indicades
 	 */
-	public void enregistraViatge(String dni, Date dataInici, Date dataFi, String nom) throws JaTeViatge {
+	public void enregistraViatge(String dni, Date dataInici, Date dataFi, String nom) throws JaTeViatge, ClientNoExisteix {
 		ICtrlClient cClient = CtrlDataFactoria.INSTANCE.getCtrlClient();
 		ICtrlCiutat cCiutat = CtrlDataFactoria.INSTANCE.getCtrlCiutat();
 		Ciutat ciutat = cCiutat.get(nom);
